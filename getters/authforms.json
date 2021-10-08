@@ -1,0 +1,27 @@
+{ 
+"Sign-up" : {
+    "YourEmailField" : "input[placeholder='Your Email Address']",
+    "YourPasswordField" : "input[placeholder='Your Password']",
+    "NoUsersField" : "input[placeholder='Number of people in your team']",
+    "SubmitBtn" : "button[type='submit']",
+    "SwitchToLoginBtn" : "a[class='vs-c-btn vs-c-btn--link']",
+
+    "GoToFacebookBtn" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--fb']",
+    "GoToTwiterBtn" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--tw']",
+    "GoToRegzenBtn" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--regzen']"
+}, 
+
+"Login" : {
+    "YourEmailField" : "input[placeholder='Your Email Address']",
+    "YourPasswordField" : "input[placeholder='Your Password']",
+    "SubmitBtn" : "button[type='submit']",
+    "ForgotPassBtn" : "a[class='vs-c-auth-modal__body-text vs-c-auth-modal__body-text--small']",
+    "BackToHomeBtn" : "a[class='vs-u-font-bold vs-u-text--uppercase vs-c-auth-modal__body-text']",
+    "SwitchToSignupBtn" : "a[class='vs-u-font-bold vs-c-auth-modal__bottom-text-main vs-u-text--uppercase']",
+    
+    "GoToFacebookBtn" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--fb']",
+    "GoToTwiterBtn" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--tw']",
+    "GoToRegzenBtn" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--regzen']"
+}
+    
+}

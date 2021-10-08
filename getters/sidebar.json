@@ -1,0 +1,14 @@
+{
+"Sidebar" : {
+    "CollapseBtn" : "div[class='vs-c-list__btn']",
+    "HoverAddOrg" : "div[class='vs-c-list__btn el-tooltip vs-c-list-btn--new-workspace']",
+    "Show/hideOrgBtn" : "button[class='vs-c-btn vs-c-btn--link vs-c-btn--sm vs-c-list__caret collapsed']",
+    "SelectOrg" : "a[class='vs-c-list__btn vs-c-list__organisation']",
+    "HoverAddBoard" : "div[class='vs-c-list__btn vs-c-list-btn--add-new el-tooltip']",
+    "SelectFromTooltip" : ".vs-c-tooltip-active-sprints .vs-c-list li a",
+    "SelectBoard" : "a[class='vs-c-list__btn']",
+    "Show/hideBoardBtn" : "button[slot='toggle-button']",
+    "GoToMyAssignmentsBtn" : "span[class='el-dropdown-link']"
+}
+
+}

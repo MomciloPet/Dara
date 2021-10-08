@@ -1,0 +1,11 @@
+{
+"CreateOrg" : {
+    "OpenModal" : "div[class='vs-c-my-organization vs-c-my-organization--add-new not-sortable']",
+    "CloseModal" : "button[name='close-new-board-modal-btn']",
+    "BackBtn" : "button[name='prev_btn']",
+    "OrgNameInputField" : "input[placeholder='Enter name...']",
+    "NextBtn" : "button[name='next_btn']",
+    "UplOrgLogo" : "div[class='el-upload el-upload--text']"
+}
+
+}

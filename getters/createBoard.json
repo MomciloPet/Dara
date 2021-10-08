@@ -1,0 +1,15 @@
+{
+"CreateBoard" : {
+    "OpenModal" : "div[class='vs-c-organization-boards__item--add-new']",
+    "CloseModal" : "button[name='close-new-board-modal-btn']",
+    "BackBtn" : "button[name='prev_btn']",
+    "OrgDD" : "input[placeholder='Select']",
+    "SelectFromDD" : ".el-select-dropdown__item",
+    "BoardTitleInputField" : "input[placeholder='Enter title...']",
+    "NextBtn" : "button[name='next_btn']",
+    "BoardTypeCheckBox-Scrum" : "span[name='type_scrum']",
+    "BoardTypeCheckBox-Kanban" : "span[name='type_kanban']",
+    "UplBoardLogo" : "div[class='el-upload el-upload--text']"
+}
+
+}
