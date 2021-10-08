@@ -6,12 +6,12 @@
   "submitButton" : "button[type='submit']",
   "switchToLoginButton" : "a[class='vs-c-btn vs-c-btn--link']",
   "goToFacebookButton" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--fb']",
-  "goToTwiterBtn" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--tw']",
-  "goToRegzenBtn" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--regzen']"
+  "goToTwiterButton" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--tw']",
+  "goToRegzenButton" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--regzen']"
 },
 "loginForm" : {
-  "forgotPassBtn" : "a[class='vs-c-auth-modal__body-text vs-c-auth-modal__body-text--small']",
-  "backToHomeBtn" : "a[class='vs-u-font-bold vs-u-text--uppercase vs-c-auth-modal__body-text']",
-  "switchToSignupBtn" : "a[class='vs-u-font-bold vs-c-auth-modal__bottom-text-main vs-u-text--uppercase']"
+  "forgotPassButton" : "a[class='vs-c-auth-modal__body-text vs-c-auth-modal__body-text--small']",
+  "backToHomeButton" : "a[class='vs-u-font-bold vs-u-text--uppercase vs-c-auth-modal__body-text']",
+  "switchToSignupButton" : "a[class='vs-u-font-bold vs-c-auth-modal__bottom-text-main vs-u-text--uppercase']"
 }  
 }
