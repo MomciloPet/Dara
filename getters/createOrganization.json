@@ -1,0 +1,8 @@
+{
+  "openOrganizationModal" : "div[class='vs-c-my-organization vs-c-my-organization--add-new not-sortable']",
+  "closeOrganizationModal" : "button[name='close-new-board-modal-btn']",
+  "backButton" : "button[name='prev_btn']",
+  "organizationNameInputField" : "input[name='name']",
+  "nextButton" : "button[name='next_btn']",
+  "upladOrganizationLogo" : "div[class='el-upload el-upload--text']"
+}

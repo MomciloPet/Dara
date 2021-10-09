@@ -1,0 +1,11 @@
+{
+  "homelogoButton" : "div[class='vs-c-site-logo vs-u-cursor--pointer']",
+  "organizationLogoButton" : "div[class='vs-l-organization__title vs-u-cursor--default']",
+  "addToFavorites" : "div[class='vs-u-cursor--pointer vs-u-gap--right vs-u-display--flex']",
+  "searchInputField" : "input[type='text']",
+  "showFinishedSprintsButton" : "button[name='show_finished_sprints']",
+  "showTableView" : "button[name='show_finished_sprints']+button",
+  "moreOptionsDropDown" : "div[class='el-dropdown']",
+  "showFilters" : "div[class='vs-c-dropdown-wrapper vs-c-filter']",
+  "howItWorks" : ".vs-l-project__options > .el-tooltip.vs-c-btn.vs-c-btn--link"
+}

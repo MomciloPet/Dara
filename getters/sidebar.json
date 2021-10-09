@@ -1,0 +1,11 @@
+{
+  "collapseButton" : "div[class='vs-c-list__btn']",
+  "hoverAddOrganization" : "div[class='vs-c-list__btn el-tooltip vs-c-list-btn--new-workspace']",
+  "showHideOrganizationButton" : "button[class='vs-c-btn vs-c-btn--link vs-c-btn--sm vs-c-list__caret collapsed']",
+  "selectOrganization" : "a[class='vs-c-list__btn vs-c-list__organisation']",
+  "hoverAddBoard" : "div[class='vs-c-list__btn vs-c-list-btn--add-new el-tooltip']",
+  "selectFromTooltip" : ".vs-c-tooltip-active-sprints .vs-c-list li a",
+  "selectBoard" : "a[class='vs-c-list__btn']",
+  "showHideBoardButton" : "button[slot='toggle-button']",
+  "goToMyAssignmentsButton" : "span[class='el-dropdown-link']"
+}

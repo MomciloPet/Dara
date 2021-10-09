@@ -1,0 +1,9 @@
+{
+  "openBoardModal" : "div[class='vs-c-organization-boards__item--add-new']",
+  "closeBoardModal" : "button[name='close-new-board-modal-btn']",
+  "organizationDropDown" : "input[class='el-input__inner']",
+  "selectFromDropDown" : ".el-select-dropdown__item",
+  "boardTitleInputField" : "input[name='name']",
+  "boardTypeCheckBoxScrum" : "span[name='type_scrum']",
+  "boardTypeCheckBoxKanban" : "span[name='type_kanban']"
+}
