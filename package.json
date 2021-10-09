@@ -1,0 +1,22 @@
+{
+  "name": "dara",
+  "version": "1.0.0",
+  "description": "cypress kurs svake subote 10-14h",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MomciloPet/Dara.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MomciloPet/Dara/issues"
+  },
+  "homepage": "https://github.com/MomciloPet/Dara#readme",
+  "dependencies": {
+    "cypress": "^8.5.0"
+  }
+}
