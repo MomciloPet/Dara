@@ -1,0 +1,30 @@
+{
+  "user" : {
+    "email" : "petrov.test90+VS7@gmail.com",
+    "randomEmail" : "petrov.test90+VS81@gmail.com",
+    "password" : "test1234",
+    "numberOfUsers" : "7"
+  },
+  "userWrong" : {
+    "wrongEmail" : "petrov.test87+VS@gmail.com",
+    "wrongPassword" : "tess123",
+    "wrongNumberOfUsers" : "11"
+  },
+  "userInValid" : {
+    "inValidEmail" : "perapera",
+    "inValidPassword" : "pep",
+    "inValidNumberOfUsers" : "peki"
+  },
+  "organization" : {
+    "newName" : "first organization",
+    "editName" : "second organization",
+    "newProject" :"first project",
+    "newBoard" : "first board"
+  },
+  "board" : {
+    "columnSpintName" : "Sprint 2",
+    "taskName" : "first Task",
+    "editTaskName" : " changed",
+    "sprintGoal" : "Finish all tasks"
+  }
+}

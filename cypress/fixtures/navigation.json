@@ -7,5 +7,6 @@
   "showTableView" : "button[name='show_finished_sprints']+button",
   "moreOptionsDropDown" : "div[class='el-dropdown']",
   "showFilters" : "div[class='vs-c-dropdown-wrapper vs-c-filter']",
-  "howItWorks" : ".vs-l-project__options > .el-tooltip.vs-c-btn.vs-c-btn--link"
+  "howItWorks" : ".vs-l-project__options > .el-tooltip.vs-c-btn.vs-c-btn--link",
+  "loggoutButton" : "button[class='vs-c-btn vs-c-btn--link vs-c-btn--danger']"
 }

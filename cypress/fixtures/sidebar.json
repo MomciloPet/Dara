@@ -1,0 +1,15 @@
+{
+  "collapseButton" : "div[class='vs-c-list__btn']",
+  "hoverAddOrganization" : "div[class='vs-c-list__btn el-tooltip vs-c-list-btn--new-workspace']",
+  "showHideOrganizationButton" : "button[class='vs-c-btn vs-c-btn--link vs-c-btn--sm vs-c-list__caret collapsed']",
+  "selectOrganization" : ".vs-c-list__oragnisation-item .vs-c-img--avatar",
+  "hoverAddBoard" : "div[class='vs-c-list__btn vs-c-list-btn--add-new el-tooltip']",
+  "selectOrganizationFromTooltip" : "li:nth-of-type(1) > a > span",
+  "selectBoardFromTooltip" : "li:nth-of-type(2) > a > span",
+  "selectBoard" : "a[class='vs-c-list__btn']",
+  "showHideBoardButton" : "button[slot='toggle-button']",
+  "goToMyAssignmentsButton" : "span[class='el-dropdown-link']",
+  "myAccount" : "img[class='vs-u-img--round vs-c-user-avatar']",
+  "myAccountProfile" : "li:nth-of-type(4) > span > div > .vs-c-site-logo",
+  "addBoardToFavorites" : ".vs-c-list.vs-c-list--boards > .vs-c-list__item.vs-c-list__item-board .vs-c-list__btn > div:nth-of-type(1)"
+}
