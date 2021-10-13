@@ -59,4 +59,3 @@ describe('Login', () => {
     cy.get(navigation.loggoutButton).click()
   });
 })
-
