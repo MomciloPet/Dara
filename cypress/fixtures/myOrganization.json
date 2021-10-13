@@ -1,0 +1,27 @@
+{
+"createOrganization" : {
+  "openModal" : "div[class='vs-c-my-organization vs-c-my-organization--add-new not-sortable']",
+  "closeModal" : "button[name='close-new-board-modal-btn']",
+  "backButton" : "button[name='prev_btn']",
+  "organizationNameInputField" : "input[name='name']",
+  "nextButton" : "button[name='next_btn']",
+  "upladOrganizationLogo" : "div[class='el-upload el-upload--text']"
+},
+"myOrganizationsBoard" : {
+  "organizationInfoOkButton" : "button[class='vs-c-btn vs-c-btn--primary vs-c-btn--lg vs-u-font-sm vs-c-modal--features-confirm-button']",
+  "editOrganizationName" : "span[title='Edit Organization']",
+  "editOrganizationNameInputField" : "input[name='change-organization-name']",
+  "confirmEditOrganizationName" : "button[name='change-organization-name']",
+  "addNewProjectFromOrganizationCard" : "li[title='Add new Project']",
+  "addNewBoardFromOrganizationCard" : "li[title='Add new Board']",
+  "organizationCardHeader" : "div[class=vs-c-my-organization__header]",
+  "archiveOrganizationButton" : ".vs-c-my-organizations-item-wrapper > div:nth-of-type(1) span[title='Archive Organization']",
+  "confirmActionInModal" : "button[name='save-btn']",
+  "reopenOrganization" : "span[title='Reopen Organization']",
+  "deleteOrganization" : "span[title='Delete Organization']"
+},
+"myOrganizationSideMenu" : {
+  "infoButton" : "li:nth-of-type(8) > span > div > .vs-c-site-logo",
+  "deleteButton" : "button[class='vs-c-btn vs-c-btn--warning vs-c-btn--spaced']"
+}
+}

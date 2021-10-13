@@ -3,11 +3,14 @@
   "yourEmailInputField" : "input[type='email']",
   "yourPasswordInputField" : "input[type='password']",
   "noUsersInputField" : "input[name='number_of_users']",
+  "termsAndPrivacyPolicyCheckBox" : "span[class='vs-c-checkbox-check']",
   "submitButton" : "button[type='submit']",
   "switchToLoginButton" : "a[class='vs-c-btn vs-c-btn--link']",
   "goToFacebookButton" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--fb']",
   "goToTwiterButton" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--tw']",
-  "goToRegzenButton" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--regzen']"
+  "goToRegzenButton" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--regzen']",
+  "freeSignUpButton" : "a[class='vsp-c-btn vsp-c-btn--secondary vsp-c-btn--nowrap vsp-c-pricing-btn--small']",
+  "addAcountDetailsCancelButton" : ".vs-c-btn--danger"
 },
 "loginForm" : {
   "forgotPassButton" : "a[class='vs-c-auth-modal__body-text vs-c-auth-modal__body-text--small']",

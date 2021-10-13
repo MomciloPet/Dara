@@ -4,7 +4,7 @@
   "description": "cypress kurs svake subote 10-14h",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress": "./node_modules/.bin/cypress open"
   },
   "repository": {
     "type": "git",
