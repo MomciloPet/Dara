@@ -8,6 +8,8 @@
     "upladOrganizationLogo" : "div[class='el-upload el-upload--text']"
   },
   "myOrganizationsBoard" : {
+    "organizationItem" : "div[class='vs-c-my-organization organization-list-item']",
+    "newOrganizationItem" : "div[class='vs-c-my-organization vs-c-my-organization--add-new not-sortable']",
     "organizationInfoOkButton" : "button[class='vs-c-btn vs-c-btn--primary vs-c-btn--lg vs-u-font-sm vs-c-modal--features-confirm-button']",
     "editOrganizationName" : "span[title='Edit Organization']",
     "editOrganizationNameInputField" : "input[name='change-organization-name']",

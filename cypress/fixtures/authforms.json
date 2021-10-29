@@ -1,5 +1,6 @@
 { 
   "signUpForm" : {
+    "inputFieldLabel" : "label[class='el-form-item__label vs-u-text--uppercase']",
     "yourEmailInputField" : "input[type='email']",
     "yourPasswordInputField" : "input[type='password']",
     "noUsersInputField" : "input[name='number_of_users']",
@@ -10,11 +11,16 @@
     "goToTwiterButton" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--tw']",
     "goToRegzenButton" : "button[class='vs-c-btn vs-c-btn--social-auth vs-c-btn--regzen']",
     "freeSignUpButton" : "a[class='vsp-c-btn vsp-c-btn--secondary vsp-c-btn--nowrap vsp-c-pricing-btn--small']",
-    "addAcountDetailsCancelButton" : ".vs-c-btn--danger"
+    "addAcountDetailsCancelButton" : ".vs-c-btn--danger",
+    "errorMessages" : "span[class='el-form-item__error el-form-item-error--top']",
+    "mainErrorMessage" : "span[class='el-form-item__error']",
+    "emailExistsError" : "div[class='el-message']"
   },
   "loginForm" : {
     "forgotPassButton" : "a[class='vs-c-auth-modal__body-text vs-c-auth-modal__body-text--small']",
     "backToHomeButton" : "a[class='vs-u-font-bold vs-u-text--uppercase vs-c-auth-modal__body-text']",
-    "switchToSignupButton" : "a[class='vs-u-font-bold vs-c-auth-modal__bottom-text-main vs-u-text--uppercase']"
+    "switchToSignupButton" : "a[class='vs-u-font-bold vs-c-auth-modal__bottom-text-main vs-u-text--uppercase']",
+    "welcomeMessageText1" : ".vs-c-my-organization-no-organization-popup-content > p:nth-of-type(1)",
+    "welcomeMessageText2" : ".vs-c-my-organization-no-organization-popup-content > p:nth-of-type(2)"
   }  
 }

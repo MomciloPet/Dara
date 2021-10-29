@@ -7,22 +7,31 @@ import myOrganization from "../fixtures/myOrganization.json"
 import boards from "../fixtures/Boards.json"
 
 describe('BoardCRUD', () => {
-  
-  it('visit vivify scrum', () => {
+  before(() => {
     cy.visit("/login", { timeout: 30000 })
-  });
-
-  it('valid login', () => {
     cy.get(authforms.signUpForm.yourEmailInputField).clear().type(data.user.email),
     cy.get(authforms.signUpForm.yourPasswordInputField).clear().type(data.user.password),
     cy.get(authforms.signUpForm.submitButton).click()
-  });
+    cy.wait(3000)
+  })
+
+  after(() => {
+    cy.get(sidebar.selectOrganization).click()
+    cy.get(myOrganization.myOrganizationsBoard.organizationInfoOkButton).click()
+    cy.get(myOrganization.myOrganizationSideMenu.infoButton).click()
+    cy.get(myOrganization.myOrganizationSideMenu.deleteButton).click()
+    cy.get(authforms.signUpForm.yourPasswordInputField).type(data.user.password)
+    cy.get(myOrganization.myOrganizationsBoard.confirmActionInModal).click()
+    cy.get(sidebar.myAccount).click(),
+    cy.get(sidebar.myAccountProfile).click(),
+    cy.get(navigation.loggoutButton).click()
+  })
 
   it('create board from sidebar without organization', () => {
     cy.get(navigation.homelogoButton).click()
     cy.get(sidebar.hoverAddOrganization).click()
     cy.get(sidebar.selectBoardFromTooltip).click({ force: true })
-  });
+  })
 
   it('create organization from my organizations page', () => {
     cy.get(myOrganization.createOrganization.openModal).click()
@@ -30,7 +39,7 @@ describe('BoardCRUD', () => {
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.get(myOrganization.myOrganizationsBoard.organizationInfoOkButton).click()
-  });
+  })
 
   it('create board from sidebar', () => {
     cy.get(navigation.homelogoButton).click()
@@ -43,14 +52,14 @@ describe('BoardCRUD', () => {
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.wait(1500)
-  });
+  })
 
   it('cancel create board', () => {
     cy.get(sidebar.selectOrganization).click()
     cy.get(myOrganization.myOrganizationsBoard.organizationInfoOkButton).click()
     cy.get(boards.createBoard.openBoardModal).click()
     cy.get(myOrganization.createOrganization.backButton).click()
-  });
+  })
 
   it('create board from boards page', () => {
     cy.get(boards.createBoard.openBoardModal).click()
@@ -60,11 +69,11 @@ describe('BoardCRUD', () => {
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.get(myOrganization.createOrganization.nextButton).click()
-  });
+  })
 
   it('add board to favorites', () => {
     cy.get(sidebar.addBoardToFavorites).eq(0).click({ force: true })
-  });
+  })
 
   it('add team member', () => {
     cy.get(sidebar.selectOrganization).click()
@@ -110,18 +119,4 @@ describe('BoardCRUD', () => {
     cy.get(myOrganization.myOrganizationsBoard.confirmActionInModal).click()
   })
 
-  it('open my organization and delete it', () => {
-    cy.get(sidebar.selectOrganization).click()
-    cy.get(myOrganization.myOrganizationsBoard.organizationInfoOkButton).click()
-    cy.get(myOrganization.myOrganizationSideMenu.infoButton).click()
-    cy.get(myOrganization.myOrganizationSideMenu.deleteButton).click()
-    cy.get(authforms.signUpForm.yourPasswordInputField).type(data.user.password)
-    cy.get(myOrganization.myOrganizationsBoard.confirmActionInModal).click()
-  })
-
-  it('loggout', () => {
-    cy.get(sidebar.myAccount).click(),
-    cy.get(sidebar.myAccountProfile).click(),
-    cy.get(navigation.loggoutButton).click()
-  });
 })
