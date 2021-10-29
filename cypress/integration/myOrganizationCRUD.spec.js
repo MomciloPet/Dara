@@ -7,18 +7,21 @@ import myOrganization from "../fixtures/myOrganization.json"
 import boards from "../fixtures/Boards.json"
 
 describe('organizationCRUD', () => {
-  
-  it('visit vivify scrum', () => {
+  before(() => {
     cy.visit("/login", { timeout: 30000 })
-  });
-
-  it('valid login and home page', () => {
     cy.get(authforms.signUpForm.yourEmailInputField).clear().type(data.user.email),
     cy.get(authforms.signUpForm.yourPasswordInputField).clear().type(data.user.password),
     cy.get(authforms.signUpForm.submitButton).click()
     cy.wait(3000)
-  });
+  })
 
+  after(() => {
+    cy.get(sidebar.myAccount).click(),
+    cy.get(sidebar.myAccountProfile).click(),
+    cy.get(navigation.loggoutButton).click()
+    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/login')
+  })
+  
   it('create organization from sidebar', () => {
     cy.get(navigation.homelogoButton).click()
     cy.get(sidebar.hoverAddOrganization).click()
@@ -27,13 +30,16 @@ describe('organizationCRUD', () => {
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.get(myOrganization.myOrganizationsBoard.organizationInfoOkButton).click()
-  });
+    cy.get("div[class='vs-l-project__title-info vs-u-cursor--pointer']")
+      .find("span").eq(1)
+      .should('have.text', data.organization.newName)
+  })
 
   it('cancel create organization', () => {
     cy.get(navigation.homelogoButton).click()
     cy.get(myOrganization.createOrganization.openModal).click()
     cy.get(myOrganization.createOrganization.backButton).click()
-  });
+  })
 
   it('create organization from my organizations page', () => {
     cy.get(myOrganization.createOrganization.openModal).click()
@@ -41,14 +47,22 @@ describe('organizationCRUD', () => {
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.get(myOrganization.createOrganization.nextButton).click()
     cy.get(myOrganization.myOrganizationsBoard.organizationInfoOkButton).click()
-  });
+  })
 
   it('change organization name', () => {
     cy.get(navigation.homelogoButton).click()
+    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/my-organizations')
+    cy.get(myOrganization.myOrganizationsBoard.organizationItem).should('be.visible')
+    cy.get(myOrganization.myOrganizationsBoard.organizationItem)
+      .find(".vs-c-my-organization__title").eq(1)
+      .should('have.text', data.organization.newName)
     cy.get(myOrganization.myOrganizationsBoard.editOrganizationName).eq(0).click()
     cy.get(myOrganization.myOrganizationsBoard.editOrganizationNameInputField).clear().type(data.organization.editName)
     cy.get(myOrganization.myOrganizationsBoard.confirmEditOrganizationName).click()
-  });
+    cy.get(myOrganization.myOrganizationsBoard.organizationItem)
+      .find(".vs-c-my-organization__title").eq(0)
+      .should('have.text', data.organization.editName)
+  })
 
   it('add new project from organization card', () => {
     cy.get(myOrganization.myOrganizationsBoard.addNewProjectFromOrganizationCard).eq(0).click()
@@ -82,6 +96,7 @@ describe('organizationCRUD', () => {
   it('reopen organization from organization card', () => {
     cy.get(myOrganization.myOrganizationsBoard.reopenOrganization).eq(0).click({ force: true })
     cy.get(myOrganization.myOrganizationsBoard.confirmActionInModal).click()
+    cy.get(myOrganization.myOrganizationsBoard.organizationItem).should('have.length', 2)
   })
 
   it('delete organization from organization card', () => {
@@ -90,6 +105,9 @@ describe('organizationCRUD', () => {
     cy.get(myOrganization.myOrganizationsBoard.deleteOrganization).eq(0).click({ force: true })
     cy.get(authforms.signUpForm.yourPasswordInputField).type(data.user.password)
     cy.get(myOrganization.myOrganizationsBoard.confirmActionInModal).click()
+    cy.get(myOrganization.myOrganizationsBoard.organizationItem).should('have.length', 1)
+    cy.get(myOrganization.myOrganizationsBoard.organizationItem).eq(1).should('not.exist')
+
   })
 
   it('open my organization and delete it', () => {
@@ -99,11 +117,8 @@ describe('organizationCRUD', () => {
     cy.get(myOrganization.myOrganizationSideMenu.deleteButton).click()
     cy.get(authforms.signUpForm.yourPasswordInputField).type(data.user.password)
     cy.get(myOrganization.myOrganizationsBoard.confirmActionInModal).click()
+    cy.get(myOrganization.myOrganizationsBoard.organizationItem).should('not.exist')
+    cy.get(myOrganization.myOrganizationsBoard.newOrganizationItem).should('be.visible')
   })
 
-  it('loggout', () => {
-    cy.get(sidebar.myAccount).click(),
-    cy.get(sidebar.myAccountProfile).click(),
-    cy.get(navigation.loggoutButton).click()
-  });
 })

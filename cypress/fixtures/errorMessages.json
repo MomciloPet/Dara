@@ -1,0 +1,11 @@
+{
+  "combinationIncorrect" : "Oops! Your email/password combination is incorrect",
+  "passwordRequired" : "The password field is required",
+  "emailInvalid" : "The email field must be a valid email",
+  "passwordInvalid" : "The password field must be at least 5 characters",
+  "usersNumberRequired" : "The number of users field is required",
+  "usersNumberIncorrect" : "The number of users field must be an integer",
+  "usersNumberRange" : "The number of users must be between 1 and 10",
+  "privacyPolicyRequired" : "The agree to terms and privacy policy field is required",
+  "userAlreadyExists" : "User with that email already exists"
+}
