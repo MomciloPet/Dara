@@ -1,4 +1,7 @@
 import data from "../fixtures/data.json"
+import boards from "../models/boards"
+import sidebar from "../models/sidebar"
+import authModule from "../models/authModule"
 
 module.exports = {
   get openModal() {
@@ -55,7 +58,7 @@ module.exports = {
   get reopenOrganization() {
     return cy.get("span[title='Reopen Organization']");
   },
-  get deleteOrganization() {
+  get deleteOrganizationM() {
     return cy.get("span[title='Delete Organization']");
   },
   get infoButton() {
@@ -75,7 +78,33 @@ module.exports = {
     this.nextButton.click()
     cy.wait("@organizations").then((intercept) => {
       expect(intercept.response.statusCode).to.eql(200)
-  })
-}
+    })
+  },
+
+  boardModal() {
+    cy.intercept("POST", "**/api/v2/boards").as("boards");
+    this.organizationNameInputField.type(data.organization.newBoard)
+    this.nextButton.click()
+    boards.boardTypeCheckBoxScrum.click()
+    this.nextButton.click()
+    this.nextButton.click()
+    this.nextButton.click()
+    cy.wait("@boards").then((intercept) => {
+      expect(intercept.response.statusCode).to.eql(201)
+    })
+  },
+
+  deleteOrganization() {
+    cy.intercept("POST", "**/api/v2/organizations/**").as("organizations");
+    sidebar.selectOrganization.click()
+    this.organizationInfoOkButton.click()
+    this.infoButton.click()
+    this.deleteButton.click()
+    authModule.passwordInput.type(data.user.password)
+    this.confirmActionInModal.click()
+    cy.wait("@organizations").then((intercept) => {
+      expect(intercept.response.statusCode).to.eql(201)
+    })
+  }
 
 }

@@ -61,23 +61,6 @@ module.exports = {
     return cy.get("a[class='vs-u-font-bold vs-c-auth-modal__bottom-text-main vs-u-text--uppercase']");
   },
 
-
-  // login({ email = data.user.email, password = data.user.password }) {
-  //   if(email == "" || password == "") {
-  //     this.submitButton.click();
-  //   } else {
-  //       cy.log(email, password)
-  //        cy.intercept("POST", "**/api/v2/login").as("login");
-  //         this.emailInput.should("be.visible").type(email);
-  //         this.passwordInput.should("be.visible").type(password);
-  //         this.submitButton.click();
-  //         if (email == data.user.email && password == data.user.password) {
-  //         cy.wait("@login").then((intercept) => {
-  //             expect(intercept.response.statusCode).to.eql(200);
-  //         });
-  //         }
-  //   }
-
   login({ email = data.user.email, password = data.user.password }) {
     if (email == "") {
       this.passwordInput.should("be.visible").type(password);

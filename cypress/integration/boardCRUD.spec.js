@@ -10,25 +10,14 @@ describe('BoardCRUD', () => {
   before(() => {
     cy.visit("/login", { timeout: 30000 }),
     authModule.login({}),
-    cy.wait(3000),
     cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/my-organizations'),
     organization.newOrganizationItem.should('be.visible')
   })
 
   after(() => {
-    sidebar.selectOrganization.click()
-    organization.organizationInfoOkButton.click()
-    organization.infoButton.click()
-    organization.deleteButton.click()
-    authModule.passwordInput.type(data.user.password)
-    organization.confirmActionInModal.click()
-    cy.intercept("POST", "**/api/v2/logout").as("logout");
-    sidebar.myAccount.should('be.visible').click();
-    sidebar.myAccountProfile.should('be.visible').click();
-    navigation.loggoutButton.should('be.visible').click();
-    cy.wait("@logout").then((intercept) => {
-      expect(intercept.response.statusCode).to.eql(201)
-    });
+    organization.deleteOrganization()
+    authModule.logout()
+    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/login')
   })
 
   it('create board from sidebar without organization', () => {
@@ -47,13 +36,7 @@ describe('BoardCRUD', () => {
     navigation.homelogoButton.click()
     sidebar.hoverAddOrganization.click()
     sidebar.selectBoardFromTooltip.click({ force: true })
-    organization.organizationNameInputField.type(data.organization.newBoard)
-    organization.nextButton.click()
-    boards.boardTypeCheckBoxScrum.click()
-    organization.nextButton.click()
-    organization.nextButton.click()
-    organization.nextButton.click()
-    cy.wait(1500)
+    organization.boardModal()
   })
 
   it('cancel create board', () => {
@@ -65,12 +48,7 @@ describe('BoardCRUD', () => {
 
   it('create board from boards page', () => {
     boards.openBoardModal.click()
-    organization.organizationNameInputField.type(data.organization.newBoard)
-    organization.nextButton.click()
-    boards.boardTypeCheckBoxScrum.click()
-    organization.nextButton.click()
-    organization.nextButton.click()
-    organization.nextButton.click()
+    organization.boardModal()
   })
 
   it('add board to favorites', () => {
@@ -85,11 +63,11 @@ describe('BoardCRUD', () => {
     boards.addTeamMemberInputField.click()
     boards.selectFromAutocompleteDropDown.click()
     organization.confirmActionInModal.click()
+    organization.organizationInfoOkButton.click()
   })
 
   it('check members from card', () => {
     sidebar.selectOrganization.click()
-    organization.organizationInfoOkButton.click()
     boards.membersButton.eq(0).click()
   })
 

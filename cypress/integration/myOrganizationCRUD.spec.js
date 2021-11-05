@@ -10,7 +10,6 @@ describe('organizationCRUD', () => {
   before(() => {
     cy.visit("/login", { timeout: 30000 }),
     authModule.login({}),
-    cy.wait(3000),
     cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/my-organizations'),
     organization.newOrganizationItem.should('be.visible')
   })
@@ -100,7 +99,7 @@ describe('organizationCRUD', () => {
   it('delete organization from organization card', () => {
     organization.archiveOrganizationButton.eq(0).click({ force: true })
     organization.confirmActionInModal.click()
-    organization.deleteOrganization.eq(0).click({ force: true })
+    organization.deleteOrganizationM.eq(0).click({ force: true })
     authModule.passwordInput.type(data.user.password)
     organization.confirmActionInModal.click()
     organization.organizationItem.should('have.length', 1)
@@ -108,12 +107,7 @@ describe('organizationCRUD', () => {
   })
 
   it('open my organization and delete it', () => {
-    sidebar.selectOrganization.click()
-    organization.organizationInfoOkButton.click()
-    organization.infoButton.click()
-    organization.deleteButton.click()
-    authModule.passwordInput.type(data.user.password)
-    organization.confirmActionInModal.click()
+    organization.deleteOrganization()
     organization.organizationItem.should('not.exist')
     organization.newOrganizationItem.should('be.visible')
   })
