@@ -1,3 +1,5 @@
 {
-  "baseUrl" : "https://cypress.vivifyscrum-stage.com"
+  "baseUrl" : "https://cypress.vivifyscrum-stage.com",
+  "blockHosts": "*.google-analytics.com",
+  "video": false
 }
