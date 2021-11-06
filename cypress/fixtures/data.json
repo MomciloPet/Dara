@@ -1,7 +1,8 @@
 {
   "user" : {
     "email" : "petrov.test90+VS7@gmail.com",
-    "randomEmail" : "petrov.test90+VS009@gmail.com",
+    "firstPart" : "petrov.test90+",
+    "secondPart" : "@gmail.com",
     "password" : "test1234",
     "numberOfUsers" : "7"
   },
@@ -27,4 +28,5 @@
     "editTaskName" : " changed",
     "sprintGoal" : "Finish all tasks"
   }
+
 }
