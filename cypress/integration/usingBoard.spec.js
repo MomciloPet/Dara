@@ -8,25 +8,25 @@ describe('usingBoard', () => {
   before(() => {
     cy.visit("/login", { timeout: 30000 }),
     authModule.login({}),
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/my-organizations'),
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/my-organizations`)
     organization.newOrganizationItem.should('be.visible')
   })
 
   after(() => {
-    organization.deleteOrganization()
-    authModule.logout()
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/login')
+    cy.deleteOrganization()
+    cy.logout()
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/login`)
   })
 
   it('create organization from my organizations page', () => {
     organization.openModal.click()
-    organization.organizationModal()
+    cy.organizationModal()
     organization.organizationInfoOkButton.click()
   })
 
   it('create board from boards page', () => {
     boards.openBoardModal.click()
-    organization.boardModal()
+    cy.boardModal()
   })
 
   it('create new column on the board', () => {
@@ -34,7 +34,7 @@ describe('usingBoard', () => {
   })
 
   it('create new task in new column', () => {
-    boards.createTask()
+    cy.createTask()
     boards.cancelNewTaskButton.click()
   })
 

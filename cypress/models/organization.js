@@ -1,8 +1,3 @@
-import data from "../fixtures/data.json"
-import boards from "../models/boards"
-import sidebar from "../models/sidebar"
-import authModule from "../models/authModule"
-
 module.exports = {
   get openModal() {
     return cy.get("div[class='vs-c-my-organization vs-c-my-organization--add-new not-sortable']");
@@ -69,42 +64,5 @@ module.exports = {
   },
   get deleteButton() {
     return cy.get("button[class='vs-c-btn vs-c-btn--warning vs-c-btn--spaced']");
-  },
-
-  organizationModal() {
-    cy.intercept("POST", "**/api/v2/organizations").as("organizations");
-    this.organizationNameInputField.type(data.organization.newName)
-    this.nextButton.click()
-    this.nextButton.click()
-    cy.wait("@organizations").then((intercept) => {
-      expect(intercept.response.statusCode).to.eql(200)
-    })
-  },
-
-  boardModal() {
-    cy.intercept("POST", "**/api/v2/boards").as("boards");
-    this.organizationNameInputField.type(data.organization.newBoard)
-    this.nextButton.click()
-    boards.boardTypeCheckBoxScrum.click()
-    this.nextButton.click()
-    this.nextButton.click()
-    this.nextButton.click()
-    cy.wait("@boards").then((intercept) => {
-      expect(intercept.response.statusCode).to.eql(201)
-    })
-  },
-
-  deleteOrganization() {
-    cy.intercept("POST", "**/api/v2/organizations/**").as("organizations");
-    sidebar.selectOrganization.click()
-    this.organizationInfoOkButton.click()
-    this.infoButton.click()
-    this.deleteButton.click()
-    authModule.passwordInput.type(data.user.password)
-    this.confirmActionInModal.click()
-    cy.wait("@organizations").then((intercept) => {
-      expect(intercept.response.statusCode).to.eql(201)
-    })
   }
-
 }
