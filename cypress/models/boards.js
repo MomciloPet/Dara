@@ -1,5 +1,3 @@
-import data from "../fixtures/data.json"
-
 module.exports = {
   get openBoardModal() {
     return cy.get("div[class='vs-c-organization-boards__item--add-new']");
@@ -105,16 +103,5 @@ module.exports = {
   },
   get sprintGoalTextArea() {
     return cy.get("textarea[name='sprint_goal']");
-  },
-
-  createTask() {
-    cy.intercept("POST", "**/api/v2/tasks").as("tasks");
-    this.addNewTaskToSprint.click({ force: true })
-    this.taskTitleTextArea.type(data.board.taskName)
-    this.saveNewTaskButton.click()
-    cy.wait("@tasks").then((intercept) => {
-      expect(intercept.response.statusCode).to.eql(201)
-    })
-  },
-
+  }
 }

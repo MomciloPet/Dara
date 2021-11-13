@@ -10,20 +10,20 @@ describe('organizationCRUD', () => {
   before(() => {
     cy.visit("/login", { timeout: 30000 }),
     authModule.login({}),
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/my-organizations'),
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/my-organizations`)
     organization.newOrganizationItem.should('be.visible')
   })
 
   after(() => {
-    authModule.logout()
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/login')
+    cy.logout()
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/login`)
   })
 
   it('create organization from sidebar', () => {
     navigation.homelogoButton.click()
     sidebar.hoverAddOrganization.click()
     sidebar.selectOrganizationFromTooltip.eq(0).click({ force: true })
-    organization.organizationModal()
+    cy.organizationModal()
     organization.organizationInfoOkButton.click()
     cy.get("div[class='vs-l-project__title-info vs-u-cursor--pointer']")
       .find("span").eq(1)
@@ -42,13 +42,13 @@ describe('organizationCRUD', () => {
 
   it('create organization from my organizations page', () => {
     organization.openModal.click()
-    organization.organizationModal()
+    cy.organizationModal()
     organization.organizationInfoOkButton.click()
   })
 
   it('change organization name', () => {
     navigation.homelogoButton.click()
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/my-organizations')
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/my-organizations`)
     organization.organizationItem.should('be.visible')
     organization.organizationItem
       .find(".vs-c-my-organization__title").eq(1)
@@ -107,7 +107,7 @@ describe('organizationCRUD', () => {
   })
 
   it('open my organization and delete it', () => {
-    organization.deleteOrganization()
+    cy.deleteOrganization()
     organization.organizationItem.should('not.exist')
     organization.newOrganizationItem.should('be.visible')
   })

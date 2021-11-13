@@ -18,8 +18,8 @@ describe('registration', () => {
   })
 
   after(() => {
-    authModule.logout(),
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/login')
+    cy.logout(),
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/login`)
   })
 
   it('sign up with inValid email', () => {
@@ -83,7 +83,7 @@ describe('registration', () => {
 
   it('valid sign-up', () => {
     authModule.register({}),
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/my-organizations'),
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/my-organizations`)
     organization.newOrganizationItem.should('be.visible')
   })
 

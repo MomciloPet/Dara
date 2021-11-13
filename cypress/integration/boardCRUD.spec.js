@@ -10,14 +10,14 @@ describe('BoardCRUD', () => {
   before(() => {
     cy.visit("/login", { timeout: 30000 }),
     authModule.login({}),
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/my-organizations'),
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/my-organizations`),
     organization.newOrganizationItem.should('be.visible')
   })
 
   after(() => {
-    organization.deleteOrganization()
-    authModule.logout()
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/login')
+    cy.deleteOrganization()
+    cy.logout()
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/login`)
   })
 
   it('create board from sidebar without organization', () => {
@@ -28,7 +28,7 @@ describe('BoardCRUD', () => {
 
   it('create organization from my organizations page', () => {
     organization.openModal.click()
-    organization.organizationModal()
+    cy.organizationModal()
     organization.organizationInfoOkButton.click()
   })
 
@@ -36,7 +36,7 @@ describe('BoardCRUD', () => {
     navigation.homelogoButton.click()
     sidebar.hoverAddOrganization.click()
     sidebar.selectBoardFromTooltip.click({ force: true })
-    organization.boardModal()
+    cy.boardModal()
   })
 
   it('cancel create board', () => {
@@ -48,7 +48,7 @@ describe('BoardCRUD', () => {
 
   it('create board from boards page', () => {
     boards.openBoardModal.click()
-    organization.boardModal()
+    cy.boardModal()
   })
 
   it('add board to favorites', () => {

@@ -1,6 +1,4 @@
 import data from "../fixtures/data.json"
-import navigation from "../models/navigations"
-import sidebar from "../models/sidebar"
 import {randomString} from "../support/helperFunctions"
 
 const randomEmail = `${data.user.firstPart}${randomString()}${data.user.secondPart}`;
@@ -111,15 +109,4 @@ module.exports = {
       }
     }
   },
-
-  logout() {
-    cy.intercept("POST", "**/api/v2/logout").as("logout");
-    sidebar.myAccount.should('be.visible').click();
-    sidebar.myAccountProfile.should('be.visible').click();
-    navigation.loggoutButton.should('be.visible').click();
-    cy.wait("@logout").then((intercept) => {
-      expect(intercept.response.statusCode).to.eql(201)
-    });
-  }
-
 }

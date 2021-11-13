@@ -17,8 +17,8 @@ describe('Login', () => {
   })
 
   after(() => {
-    authModule.logout()
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/login')
+    cy.logout()
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/login`)
   })
 
   it('login with wrong email', () => {
@@ -59,7 +59,7 @@ describe('Login', () => {
 
   it('valid login', () => {
     authModule.login({}),
-    cy.url().should('eq', 'https://cypress.vivifyscrum-stage.com/my-organizations'),
+    cy.url().should('eq', `${Cypress.config('baseUrl')}/my-organizations`)
     organization.newOrganizationItem.should('be.visible'),
     organization.newOrganizationItem
       .find(".vs-c-my-organization__title")
