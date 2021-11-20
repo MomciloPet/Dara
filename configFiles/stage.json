@@ -1,0 +1,8 @@
+{
+  "baseUrl": "https://stage.vivifyscrum.com",
+  "blockHosts": "*.google-analytics.com",
+  "video": false,
+  "env": {
+    "environment": "stage"
+  }
+}
