@@ -1,0 +1,8 @@
+{
+  "baseUrl": "https://cypress.vivifyscrum-stage.com/",
+  "blockHosts": "*.google-analytics.com",
+  "video": false,
+  "env": {
+    "environment": "cypress-stage"
+  }
+}
